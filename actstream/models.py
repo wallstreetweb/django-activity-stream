@@ -38,7 +38,7 @@ class Follow(models.Model):
         unique_together = ('user', 'content_type', 'object_id')
 
     def __str__(self):
-        return '%s -> %s' % (self.user, self.follow_object)
+        return '%s -> %r' % (self.user, self.follow_object)
 
 
 @python_2_unicode_compatible

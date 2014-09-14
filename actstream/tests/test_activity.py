@@ -205,3 +205,10 @@ class ActivityTestCase(DataTestCase):
         self.assertNotIn(self.join_action, list(user_stream(self.user1)))
         self.assertIn(self.join_action,
                       list(user_stream(self.user1, with_user_activity=True)))
+
+    def test_unicode(self):
+        name = text_type('\u0660\U0001f520\U0001f313\U0001f411\U0001f41b\U0001f41b\U0001f41e\U0001f63e')
+        group = Group.objects.create(name=name)
+        follow_obj = follow(self.user1, group)
+        self.assertIn(name, text_type(follow_obj))
+        self.assertIn(name, text_type(Action.objects.all()[0]))

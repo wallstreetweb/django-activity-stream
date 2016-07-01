@@ -96,6 +96,8 @@ class Action(models.Model):
     timestamp = models.DateTimeField(default=now, db_index=True)
 
     public = models.BooleanField(default=True, db_index=True)
+    featured = models.BooleanField(default=False, db_index=True)
+    featured_only = models.BooleanField(default=False, db_index=True)
 
     objects = actstream_settings.get_action_manager()
 

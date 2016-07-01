@@ -7,3 +7,6 @@ MANIFEST
 __pycache__
 /coverage/
 /.coverage
+
+.idea
+*.egg-info
